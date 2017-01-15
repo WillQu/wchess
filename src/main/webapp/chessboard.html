@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="/css/chessboard.css" />
   </head>
   <body>
-    <h1>Test Chessboard</h1>
-    <div id="chessboard" />
+    <h1>Test Chessboard Form</h1>
+    <div id="chessboard"></div>
+    <form id="fenForm" data-lift="Chessboard" action="/chessboard" method="post">
+      <input type="hidden" name="FEN" value="" />
+      <input id="submit" type="submit" value="submit" />
+    </form>
   </body>
 </html>

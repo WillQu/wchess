@@ -1,3 +1,10 @@
 $(document).ready(function () {
-    ChessBoard('chessboard', 'start');
+    var chessboard = ChessBoard('chessboard', {
+        draggable:true,
+        position: 'start'
+    });
+    
+    $("#fenForm").submit(function() {
+        $("#FEN").value(chessboard.fen());
+    });
 });
