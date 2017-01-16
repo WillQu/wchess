@@ -1,20 +1,22 @@
 package chess.snippet
 
-import scala.xml.NodeSeq
+import net.liftweb._
+import http._
+import util.Helpers._
 
-import net.liftweb.common.{Full,Logger}
-import net.liftweb.util.PassThru
-import net.liftweb.http.S
+import common.Logger
 
 object Chessboard extends Logger {
 
-  def render (in: NodeSeq): NodeSeq = {
-    S.param("FEN") match {
-        case Full(fen) =>
-        debug("FEN received: " + fen)
-        case _ =>
-        PassThru
+  def render = {
+    trace("Chessboard: render")
+
+    var fen = ""
+    def process() = {
+      debug("FEN received: " + fen)
     }
-    in
+
+    "name=fen" #> SHtml.onSubmit(fen = _) &
+    "type=submit" #> SHtml.onSubmitUnit(process)
   }
 }

@@ -5,6 +5,7 @@ $(document).ready(function () {
     });
     
     $("#fenForm").submit(function() {
-        $("#FEN").value(chessboard.fen());
+        var fen = chessboard.fen();
+        $("#fen").val(fen);
     });
 });
